@@ -15,8 +15,10 @@ function Task({ task, onTglStatus }) {
 
                 <div className="col-2 is-center">
                     <button className="button icon-only clear" onClick={() => onTglStatus(task)}>
-                        {task.complete && "✅"}
-                        {!task.complete && "⬜"}
+                        <img
+                            src="https://icongr.am/feather/check-circle.svg?size=24&color=11d054"
+                            alt="Open"
+                        />
                     </button>
                 </div>
                 <div className="col-12">

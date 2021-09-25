@@ -1,5 +1,5 @@
 import Task from "./Task";
-function Tasks({ tasks, onTglStatus }) {
+function Tasks({ tasks }) {
     return (
         <div className="row">
             <div className="col-12 text-right">

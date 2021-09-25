@@ -14,19 +14,13 @@ function App() {
 
   const onTglStatus = (task) => {
     console.log("completing task");
-    setTasks(
-      tasks.map((chkTask) => {
-        chkTask.complete =
-          task.id === chkTask.id ? !chkTask.complete : chkTask.complete;
-        return chkTask;
-      })
-    );
   };
+
   return (
     <div className="App">
       <Header></Header>
       <div className="container">
-        <Tasks tasks={tasks} onTglStatus={onTglStatus}></Tasks>
+        <Tasks tasks={tasks}></Tasks>
       </div>
     </div>
   );
