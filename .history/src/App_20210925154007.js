@@ -1,26 +1,16 @@
 import "./App.css";
 import "./assets/styles.css";
 
-import { useState } from "react";
-
 import Header from "./components/Header";
 import Tasks from "./components/Tasks";
-import TaskEdit from "./components/TaskEdit";
+import TaskEdit from "./components/TaskEdit"
+
+import { useState } from "react";
 
 function App() {
   const [tasks, setTasks] = useState([
-    {
-      desc: "Learn React",
-      id: 1,
-      date: "2021-01-03",
-      complete: false,
-    },
-    {
-      desc: "Profit",
-      id: 2,
-      date: "2021-01-05",
-      complete: false,
-    },
+    { desc: "Learn React", id: 1, date: "2021-01-03 10:00", status: "Complete" },
+    { desc: "Profit", id: 2, date: "2021-01-05 15:00", status: "Open" },
   ]);
 
   const onTglStatus = (task) => {
@@ -33,9 +23,6 @@ function App() {
       })
     );
   };
-
-  const [showTaskEdit, setShowTaskEdit] = useState(false);
-
   const onSaveTask = ({ desc, date }) => {
     console.log("saving tasks");
     setTasks([
@@ -43,21 +30,21 @@ function App() {
       ...tasks,
     ]);
   };
+  const [showTaskEdit, setShowTaskEdit] = useState(false);
+  <button
+    className="button outline"
+    onClick={() => setShowTaskEdit(!showTaskEdit)}>
+    {!showTaskEdit && "New"}
+    {showTaskEdit && "➖"}
+  </button>;
+  {
+    showTaskEdit && <TaskEdit task={{}} onSaveTask={onSaveTask} />;
+  }
 
   return (
     <div className="App">
       <Header></Header>
-
       <div className="container">
-        <div className="col-12 text-right">
-          <button
-            className="button outline"
-            onClick={() => setShowTaskEdit(!showTaskEdit)}>
-            {!showTaskEdit && "New"}
-            {showTaskEdit && "➖"}
-          </button>
-        </div>
-        {showTaskEdit && <TaskEdit task={{}} onSaveTask={onSaveTask} />}
         <Tasks tasks={tasks} onTglStatus={onTglStatus}></Tasks>
       </div>
     </div>
