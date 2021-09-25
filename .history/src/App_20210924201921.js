@@ -1,10 +1,9 @@
-import "./App.css";
+import './App.css';
 import "./assets/styles.css";
-
 import Header from "./components/Header";
 import Tasks from "./components/Tasks";
-
 import { useState } from "react";
+
 
 function App() {
   const [tasks, setTasks] = useState([
@@ -17,6 +16,7 @@ function App() {
       <Header></Header>
       <div className="container">
         <Tasks tasks={tasks}></Tasks>
+        <Tasks></Tasks>
       </div>
     </div>
   );
