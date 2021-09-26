@@ -12,10 +12,7 @@ function App() {
   constructor(props); {
     super(props)
     this.state = {
-      startDate: new Date(),
-      title: title,
-      desc: desc,
-
+      startDate: new Date()
     };
     this.handleChange = this.handleChange.bind(this);
     this.onFormSubmit = this.onFormSubmit.bind(this);
@@ -35,13 +32,6 @@ function App() {
       complete: false,
     },
   ]);
-
-  handleChange(date); {
-    this.setState({
-      desc: desc,
-      startDate: date
-    })
-  }
 
   const onTglStatus = (task) => {
     console.log("completing task");

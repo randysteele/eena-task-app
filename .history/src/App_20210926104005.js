@@ -36,7 +36,7 @@ function App() {
     },
   ]);
 
-  handleChange(date); {
+  handleChange(date) {
     this.setState({
       desc: desc,
       startDate: date
