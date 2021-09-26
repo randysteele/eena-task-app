@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 // import { onTglStatus } from "../App"
 class TaskList extends Component {
-
     handleEditing = () => {
         this.setState({
             editing: true,
@@ -12,20 +11,20 @@ class TaskList extends Component {
     }
     onTglStatus = (task) => {
         console.log("completing task");
-        // setTasks(
-        this.tasks.map((chkTask) => {
-            chkTask.complete =
-                task.id === chkTask.id ? !chkTask.complete : chkTask.complete;
-            return chkTask;
-        })
-            ;
+        this.setTasks(
+            this.tasks.map((chkTask) => {
+                chkTask.complete =
+                    task.id === chkTask.id ? !chkTask.complete : chkTask.complete;
+                return chkTask;
+            })
+        );
     };
 
     render() {
-
         return (
             <div className="card text-left" >
                 <div className="row">
+                    <div onDoubleClick={this.handleEditing}>Edit</div>
                     <input type="text" className={this.task}></input>
                     <div className="col-10">
                         <h4>{this.desc}</h4>
@@ -39,12 +38,12 @@ class TaskList extends Component {
                     </div>
 
                     <div className="col-2 is-center">
-                        {this.complete}
+                        {this.task.complete}
                         <button
                             className="button icon-only clear"
                             onClick={() => this.onTglStatus(this.task)}>
-                            {this.complete && "✅"}
-                            {!this.complete && "⬜"}
+                            {this.task.complete && "✅"}
+                            {!this.task.complete && "⬜"}
                         </button>
                     </div>
                 </div>

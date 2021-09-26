@@ -12,17 +12,17 @@ class TaskList extends Component {
     }
     onTglStatus = (task) => {
         console.log("completing task");
-        // setTasks(
-        this.tasks.map((chkTask) => {
-            chkTask.complete =
-                task.id === chkTask.id ? !chkTask.complete : chkTask.complete;
-            return chkTask;
-        })
-            ;
+        setTasks(
+            this.tasks.map((chkTask) => {
+                chkTask.complete =
+                    task.id === chkTask.id ? !chkTask.complete : chkTask.complete;
+                return chkTask;
+            })
+        );
     };
 
     render() {
-
+        const [tasks, setTasks] = useState()
         return (
             <div className="card text-left" >
                 <div className="row">

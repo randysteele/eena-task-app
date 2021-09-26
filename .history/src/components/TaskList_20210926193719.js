@@ -13,7 +13,7 @@ class TaskList extends Component {
     onTglStatus = (task) => {
         console.log("completing task");
         // setTasks(
-        this.tasks.map((chkTask) => {
+        this.task.map((chkTask) => {
             chkTask.complete =
                 task.id === chkTask.id ? !chkTask.complete : chkTask.complete;
             return chkTask;
