@@ -1,7 +1,11 @@
 function Task({ task, onTglStatus }) {
+    handleEditing = () => {
+        console.log("edit mode activated")
+    }
     return (
         <div className="card text-left" key={task.id}>
             <div className="row">
+                <div onDoubleClick={this.handleEditing}>Edit</div>
                 <div className="col-10">
                     <h4>{task.desc}</h4>
                     <div className="task-meta">

@@ -1,16 +1,30 @@
 import { useState } from "react";
 
-function TaskEdit({ task, onSaveTask, handleChange, onFormSubmit }) {
-    const [desc, setDesc] = useState("");
-    const [date, setDate] = useState("");
 
-    const saveTask = (e) => {
-        e.preventDefault();
-        onSaveTask({ desc: desc, date: date });
+class TaskEdit extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            startDate: new Date(),
+            title: title,
+            desc: desc,
 
-        setDesc("");
-        setDate("");
-    };
+        }
+    }
+}
+// this.handleChange = this.handleChange.bind(this);
+// this.onFormSubmit = this.onFormSubmit.bind(this);
+const [desc, setDesc] = useState("");
+const [date, setDate] = useState("");
+
+const saveTask = (e) => {
+    e.preventDefault();
+    onSaveTask({ desc: desc, date: date });
+
+    setDesc("");
+    setDate("");
+};
+render(); {
     return (
         <div className="card">
             <h3>Add Task</h3>
@@ -24,13 +38,19 @@ function TaskEdit({ task, onSaveTask, handleChange, onFormSubmit }) {
                     onChange={(e) => setDesc(e.target.value)}
                 />
 
-                <label htmlFor="date">Date</label>
+                {/* <label htmlFor="date">Date</label>
                 <input
                     type="text"
                     name="date"
                     id="date"
                     value={date}
                     onChange={(e) => setDate(e.target.value)}
+                /> */}
+                <DatePicker
+                    selected={this.state.startDate}
+                    onChange={this.handleChange}
+                    name="startDate"
+                    dateFormat="MM/dd/yyyy"
                 />
 
                 <div className="text-right">

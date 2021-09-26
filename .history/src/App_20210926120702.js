@@ -4,7 +4,7 @@ import "./assets/styles.css";
 import { useState } from "react";
 
 import Header from "./components/Header";
-import TaskList from "./components/TaskList";
+import Tasks from "./components/Tasks";
 import TaskEdit from "./components/TaskEdit";
 
 function App() {

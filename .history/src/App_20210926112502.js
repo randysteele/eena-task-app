@@ -1,13 +1,15 @@
 import "./App.css";
 import "./assets/styles.css";
-
 import { useState } from "react";
-
+import DatePicker from 'react-datepicker';
+import "react-datepicker/dist/react-datepicker.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from "./components/Header";
-import TaskList from "./components/TaskList";
+import Tasks from "./components/Tasks";
 import TaskEdit from "./components/TaskEdit";
 
 function App() {
+
   const [tasks, setTasks] = useState([
     {
       desc: "Learn React",
@@ -23,6 +25,18 @@ function App() {
     },
   ]);
 
+  const handleChange = (date) => {
+    this.setState({
+      desc: desc,
+      startDate: date
+    })
+  }
+
+  const onFormSubmit = (e) => {
+    e.preventDefault();
+    console.log(this.state.startDate)
+  }
+
   const onTglStatus = (task) => {
     console.log("completing task");
     setTasks(
@@ -36,7 +50,7 @@ function App() {
 
   const [showTaskEdit, setShowTaskEdit] = useState(false);
 
-  const onSaveTask = ({ desc, date }) => {
+  export const onSaveTask = ({ desc, date }) => {
     console.log("saving tasks");
     setTasks([
       { desc: desc, date: date, id: Date.now(), complete: false },
@@ -58,7 +72,7 @@ function App() {
           </button>
         </div>
         {showTaskEdit && <TaskEdit task={{}} onSaveTask={onSaveTask} />}
-        <TaskList tasks={tasks} onTglStatus={onTglStatus}></TaskList>
+        <Tasks tasks={tasks} onTglStatus={onTglStatus}></Tasks>
       </div>
     </div>
   );
